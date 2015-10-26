@@ -5,7 +5,7 @@
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-procs.rb -p {{ services.cron }} -C 1 ",
       "interval": 60,
-      "subscribers": [ "all" ]
+      "subscribers": [ "tasks" ]
     }
   }
 }
