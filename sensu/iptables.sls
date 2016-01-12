@@ -10,7 +10,6 @@ uchiwa_iptables:
     - comment: Uchiwa (Sensu Dashboard)
     - save: True
 
-# Open Redis port
 redis_iptables:
   iptables.append:
     - table: filter
@@ -20,4 +19,26 @@ redis_iptables:
     - jump: ACCEPT
     - match: comment
     - comment: Redis (Sensu)
+    - save: True
+
+api_iptables:
+  iptables.append:
+    - table: filter
+    - chain: INPUT
+    - proto: tcp
+    - dport: 4567
+    - jump: ACCEPT
+    - match: comment
+    - comment: Sensu API
+    - save: True
+
+rabbitmq_iptables:
+  iptables.append:
+    - table: filter
+    - chain: INPUT
+    - proto: tcp
+    - dport: 5672
+    - jump: ACCEPT
+    - match: comment
+    - comment: RabbitMQ
     - save: True
