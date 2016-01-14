@@ -42,3 +42,13 @@ rabbitmq_iptables:
     - match: comment
     - comment: RabbitMQ
     - save: True
+
+graphite_iptables:
+  iptables.append:
+    - table: filter
+    - chain: INPUT
+    - proto: tcp
+    - dport: 2003
+    - jump: ACCEPT
+    - match: comment
+    - save: True
