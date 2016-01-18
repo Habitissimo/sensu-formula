@@ -51,4 +51,5 @@ graphite_iptables:
     - dport: 2003
     - jump: ACCEPT
     - match: comment
+    - comment: Graphite
     - save: True
